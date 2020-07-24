@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=AdGuardHome
 PROJECT_NAME:=AdGuardHome
-PKG_VERSION:=v0.99.3
+PKG_VERSION:=v0.103.2
 PKG_RELEASE:=1
 
 include $(INCLUDE_DIR)/package.mk
@@ -27,43 +27,14 @@ define Package/$(PKG_NAME)/description
 Network-wide ads & trackers blocking DNS server
 endef
 
-STRIP:=true
 
-ifeq ($(ARCH),i386)
-	PKG_ARCH_ADGUARDHOME:=386
-endif
-
-ifeq ($(ARCH),x86_64)
-	PKG_ARCH_ADGUARDHOME:=amd64
-endif
-
-ifeq ($(ARCH),mipsel)
-	PKG_ARCH_ADGUARDHOME:=mipsle
-endif
-
-ifeq ($(ARCH),mips)
-	PKG_ARCH_ADGUARDHOME:=mips
-endif
-
-ifeq ($(ARCH),arm)
-	PKG_ARCH_ADGUARDHOME:=arm
-endif
-
-ifeq ($(ARCH),arm64)
-	PKG_ARCH_ADGUARDHOME:=arm64
-endif
-
-ifeq ($(ARCH),aarch64)
-	PKG_ARCH_ADGUARDHOME:=arm64
-endif
-
-TAR_NAME:=AdGuardHome_linux_$(PKG_ARCH_ADGUARDHOME)
+TAR_NAME:=AdGuardHome_linux_amd64
 
 PKG_SOURCE:=$(TAR_NAME).tar.gz
 
-PKG_SOURCE_URL:=https://github.com/AdguardTeam/AdGuardHome/releases/download/$(PKG_VERSION)/
+PKG_SOURCE_URL:=https://static.adguard.com/adguardhome/release/AdGuardHome_linux_amd64.tar.gz
 
-UNTAR_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)/$(PKG_NAME)-extract/$(PKG_ARCH_ADGUARDHOME)
+UNTAR_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)/$(PKG_NAME)-extract/amd64
 
 PKG_HASH:=skip
 
